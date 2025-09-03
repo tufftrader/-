@@ -38,14 +38,14 @@
     /* Buttons */
     .btn{
       display:inline-block;
-      padding:16px 28px;
+      padding:12px 22px;
       border-radius:999px;
       background:var(--forest);
       color:#fff;
       text-decoration:none;
       border:none;
-      font-size:1.1rem;
-      cursor:pointer !important; /* always hand cursor */
+      font-size:1rem;
+      cursor:pointer !important;
       transition: background 0.3s ease, transform 0.2s ease;
     }
     .btn:hover{
@@ -168,6 +168,8 @@
       <a href="#testimonials">Testimonials</a>
       <a href="#faq">FAQ</a>
       <a href="#booking">Book</a>
+      <!-- 6 7 Button -->
+      <button id="btn67" class="btn">6️⃣7️⃣</button>
     </nav>
   </header>
 
@@ -263,7 +265,40 @@
       let offset = window.scrollY * 0.5;
       hero.style.backgroundPositionY = offset * 0.4 + "px";
     });
+
+    // 6 7 Infinite Mango Toggle
+    let mangoInterval = null;
+    const btn67 = document.getElementById('btn67');
+
+    btn67.addEventListener('click', () => {
+      if (mangoInterval) {
+        clearInterval(mangoInterval);
+        mangoInterval = null;
+        document.querySelectorAll('.mango-fly').forEach(el => el.remove());
+      } else {
+        mangoInterval = setInterval(() => {
+          const em = document.createElement('div');
+          em.textContent = "🥭";
+          em.classList.add('mango-fly');
+          em.style.position = 'fixed';
+          em.style.left = Math.random() * 100 + 'vw';
+          em.style.top = '-50px';
+          em.style.fontSize = (Math.random() * 40 + 20) + 'px';
+          em.style.pointerEvents = 'none';
+          em.style.zIndex = 9999;
+          em.style.transition = 'transform 5s linear, top 5s linear, opacity 5s linear';
+          document.body.appendChild(em);
+
+          requestAnimationFrame(() => {
+            em.style.top = '110vh';
+            em.style.transform = `rotate(${Math.random() * 720}deg)`;
+            em.style.opacity = 0;
+          });
+
+          setTimeout(() => em.remove(), 5000);
+        }, 100);
+      }
+    });
   </script>
 </body>
 </html>
-
