@@ -47,6 +47,8 @@
       font-size:1rem;
       cursor:pointer !important;
       transition: background 0.3s ease, transform 0.2s ease;
+      position: relative;
+      z-index: 101;
     }
     .btn:hover{
       background:#36503a;
@@ -55,10 +57,13 @@
 
     /* Make nav links clickable/touch-friendly */
     nav a {
-      padding:10px 14px;
+      padding:14px 20px;
       border-radius:10px;
       font-size:1.05rem;
       cursor:pointer;
+      display: inline-block;
+      position: relative;
+      z-index: 101;
     }
     nav a:hover {
       background:rgba(68,98,74,0.1);
@@ -86,6 +91,7 @@
       transform: translateY(0);
       transition: transform 0.1s linear;
       z-index:-1;
+      pointer-events: none;
     }
     #hero .overlay {
       text-align:center;
@@ -111,18 +117,19 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    #booking h2, #faq h2, #testimonials h2 {
+    #booking h2, #faq h2, #testimonials h2, #menu h2 {
       text-align: center;
       font-family: "Noto Serif JP", serif;
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
-    #booking p, #faq p {
+    #booking p, #faq p, #menu p {
       text-align: center;
       max-width: 600px;
       margin: 0 auto 30px;
       font-size: 1.1rem;
     }
+
     /* Testimonials */
     .testimonials {display:grid;gap:20px;max-width:800px;margin:auto;}
     .testimonial {
@@ -132,6 +139,16 @@
       box-shadow:var(--shadow);
       font-style:italic;
     }
+
+    /* Menu cards */
+    #menu .gallery div {
+      background: var(--sage);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
     /* FAQ */
     details {
       margin:10px 0;
@@ -147,6 +164,7 @@
       cursor:pointer;
       outline:none;
     }
+
     @media (max-width: 768px) {
       nav {gap: 12px;}
       nav a {padding:14px 18px;font-size:1.2rem;}
@@ -165,10 +183,10 @@
       <div class="spacer"></div>
       <a href="#mission">Mission</a>
       <a href="#gallery">Gallery</a>
+      <a href="#menu">Menu</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#faq">FAQ</a>
       <a href="#booking">Book</a>
-      <!-- 6 7 Button -->
       <button id="btn67" class="btn">6️⃣7️⃣</button>
     </nav>
   </header>
@@ -199,6 +217,33 @@
       <img class="animate" src="https://images.unsplash.com/photo-1542996966-2e31c00bae30?q=80&w=1200&auto=format&fit=crop" alt="Matcha ceremony" loading="lazy"/>
       <img class="animate" src="https://images.unsplash.com/photo-1519680772-8b9d377f6b7e?q=80&w=2000&auto=format&fit=crop" alt="Forest path" loading="lazy"/>
       <img class="animate" src="https://images.unsplash.com/photo-1523419409543-a7e7d42e9c2b?q=80&w=1200&auto=format&fit=crop" alt="Bamboo path" loading="lazy"/>
+    </div>
+  </section>
+
+  <section id="menu" class="animate slide-left">
+    <h2>Our Menu</h2>
+    <p>Enjoy a selection of artisanal matcha drinks and Japanese-inspired treats.</p>
+    <div class="gallery">
+      <div>
+        <h3>Matcha Latte</h3>
+        <p>Rich, creamy, and perfectly whisked.</p>
+        <p><strong>$6</strong></p>
+      </div>
+      <div>
+        <h3>Matcha Tea Ceremony</h3>
+        <p>Experience traditional Japanese tea ritual.</p>
+        <p><strong>$12</strong></p>
+      </div>
+      <div>
+        <h3>Matcha Cookies</h3>
+        <p>Delicate cookies infused with premium matcha.</p>
+        <p><strong>$4</strong></p>
+      </div>
+      <div>
+        <h3>Yuzu Mochi</h3>
+        <p>Citrus-flavored soft mochi, refreshing and sweet.</p>
+        <p><strong>$5</strong></p>
+      </div>
     </div>
   </section>
 
